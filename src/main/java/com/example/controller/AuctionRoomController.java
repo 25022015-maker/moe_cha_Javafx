@@ -67,7 +67,7 @@ public class AuctionRoomController implements Initializable {
                     String curTime = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
                     priceSeries.getData().add(new XYChart.Data<>(curTime, currentPriceValue));
 
-                    // In thông báo ra ô Log nhật ký cho người dùng xem công khai
+                    // In thông báo ra ô Log nhật ký cho người dùng xem công khai (mục1 trong file docx)
                     txtSystemLog.appendText(String.format("\n[%s] Bạn đã trả giá: %,d đ thành công!", curTime, bidAmount));
                     txtBidAmount.clear();
                 } else {

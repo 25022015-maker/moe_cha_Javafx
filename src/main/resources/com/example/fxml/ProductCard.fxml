@@ -45,7 +45,7 @@
                     </padding>
                 </VBox>
 
-                <Button fx:id="btnBid" mnemonicParsing="false" onAction="#handleBidAction" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Đặt Giá Thầu">
+                <Button fx:id="btnBid" mnemonicParsing="false" onAction="#handleBidAction" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Tham Gia">
                     <font>
                         <Font name="System Bold" size="13.0" />
                     </font>

@@ -5,6 +5,8 @@ module com.example.app {
 
     // Khai báo module cơ sở của Java (luôn có sẵn)
     requires java.base;
+    // Khai báo module liên quan đến database :vvv
+    requires java.sql;
 
     // 2. CẤP QUYỀN TRUY CẬP (Rất quan trọng):
 
