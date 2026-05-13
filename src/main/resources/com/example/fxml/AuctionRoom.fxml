@@ -23,12 +23,12 @@
                     <children>
                         <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15;">
                             <children>
-                                <Label fx:id="lblProductName" text="Bất động sản biệt thự Vinhomes" textFill="#2c3e50">
+                                <Label fx:id="lblTitle" text="Bất động sản biệt thự Vinhomes" textFill="#2c3e50">
                                     <font>
                                         <Font name="System Bold" size="22.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="lblCountdown" text="⏳ Thời gian còn lại: 00:14:55" textFill="#e74c3c">
+                                <Label fx:id="lblTimeRemaining" text="⏳ Thời gian còn lại: 00:14:55" textFill="#e74c3c">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font>
@@ -62,7 +62,7 @@
                                               <Font name="System Bold" size="14.0" />
                                           </font>
                                       </Label>
-                                      <TextArea fx:id="txtSystemLog" editable="false" prefHeight="200.0" prefWidth="250.0" style="-fx-text-fill: #2c3e50; -fx-font-family: monospace;" text="[Hệ thống] Phiên đấu giá bắt đầu.&#10;" wrapText="true" VBox.vgrow="ALWAYS" />
+                                      <TextArea fx:id="txtAreaLog" editable="false" prefHeight="200.0" prefWidth="250.0" style="-fx-text-fill: #2c3e50; -fx-font-family: monospace;" text="[Hệ thống] Phiên đấu giá bắt đầu.&#10;" wrapText="true" VBox.vgrow="ALWAYS" />
                                   </children>
                               </VBox>
                             </children>
@@ -93,7 +93,7 @@
                                 <HBox alignment="CENTER_LEFT">
                                     <children>
                                         <Label text="Bước giá tối thiểu:" textFill="#7f8c8d" />
-                                        <Label fx:id="lblMinBid" text="+ 500,000 đ" textFill="#e67e22">
+                                        <Label fx:id="lblMinBidStep" text="+ 500,000 đ" textFill="#e67e22">
                                             <font>
                                                 <Font name="System Bold" size="14.0" />
                                             </font>
@@ -103,11 +103,11 @@
                                 <VBox spacing="5.0">
                                     <children>
                                         <Label text="Nhập giá thầu của bạn:" />
-                                        <TextField fx:id="txtBidAmount" prefHeight="38.0" promptText="Ví dụ: 25500000" style="-fx-background-radius: 5;" />
-                              <Label text="Thông báo handlePlacedBid" textFill="RED" />
+                                        <TextField fx:id="txtBidInput" prefHeight="38.0" promptText="Ví dụ: 25500000" style="-fx-background-radius: 5;" />
+                              <Label fx:id="lblManualMessage" text="Thông báo handlePlacedBid" textFill="RED" />
                                     </children>
                                 </VBox>
-                                <Button mnemonicParsing="false" onAction="#handlePlaceBid" prefHeight="40.0" prefWidth="240.0" style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="GỬI GIÁ THẦU">
+                                <Button fx:id="btn" mnemonicParsing="false" onAction="#handlePlaceBid" prefHeight="40.0" prefWidth="240.0" style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="GỬI GIÁ THẦU">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font>
@@ -124,17 +124,17 @@
                         <HBox alignment="CENTER_LEFT">
                            <children>
                               <Label text="Giá tối đa: " textFill="#7f8c8d" />
-                              <TextField />
+                              <TextField fx:id="txtAutoMaxPrice" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT">
                            <children>
                               <Label text="Bước nhảy: " textFill="#7f8c8d" />
-                              <TextField promptText="&gt;=minBid" />
+                              <TextField fx:id="txtAutoBidStep" promptText="&gt;=minBid" />
                            </children>
                         </HBox>
-                        <CheckBox mnemonicParsing="false" text="Kích hoạt" />
-                        <Label fx:id="lblAutobid" prefHeight="24.0" prefWidth="240.0" text="Thông báo auto-bid!" textFill="RED" />
+                        <CheckBox fx:id="chkEnableAutoBid" mnemonicParsing="false" onAction="#handleToggleAutoBid" text="Kích hoạt" />
+                        <Label fx:id="lblAutoMessage" prefHeight="24.0" prefWidth="240.0" text="Thông báo auto-bid!" textFill="RED" />
                      </children>
                   </VBox>
 
