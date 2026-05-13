@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="800.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.CreateAuctionController">
+    <children>
+        <VBox layoutX="40.0" layoutY="30.0" prefHeight="590.0" prefWidth="720.0" spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0">
+            <children>
+
+                <HBox alignment="CENTER_LEFT" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10;">
+                    <children>
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="Tạo Phiên Đấu Giá Mới" textFill="#2c3e50">
+                                    <font>
+                                        <Font name="System Bold" size="22.0" />
+                                    </font>
+                                </Label>
+                                <Label text="Trạng thái phân loại sản phẩm:" textFill="#7f8c8d" />
+                            </children>
+                        </VBox>
+                        <Label fx:id="lblAuctionStatus" style="-fx-background-color: #ffeaa7; -fx-text-fill: #d63031; -fx-padding: 8 15; -fx-background-radius: 20; -fx-font-weight: bold;" text="Trạng thái: Bản nháp">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill></Label>
+                    </children>
+                </HBox>
+
+                <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+                    <children>
+
+                        <VBox prefWidth="380.0" spacing="15.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
+                            <children>
+                                <VBox spacing="5.0">
+                                    <children>
+                                        <Label text="Tên tài sản đấu giá:" />
+                                        <TextField fx:id="txtProdName" prefHeight="35.0" promptText="Nhập tên tài sản đầy đủ..." />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5.0">
+                                    <children>
+                                        <Label text="Giá khởi điểm (kVND):" />
+                                        <TextField fx:id="txtStartPrice" prefHeight="35.0" promptText="Ví dụ: 10000" />
+                                    </children>
+                                </VBox>
+                        <VBox layoutX="30.0" layoutY="93.0" spacing="5.0">
+                           <children>
+                              <Label text="Giá tối thiểu (kVND):" />
+                              <TextField fx:id="txtMinBid" prefHeight="35.0" promptText="Ví dụ: 500" />
+                           </children>
+                        </VBox>
+                                <VBox spacing="5.0">
+                                    <children>
+                                        <Label text="Mô tả chi tiết tài sản:" />
+                                        <TextArea fx:id="txtDescription" prefHeight="141.0" prefWidth="340.0" promptText="Viết mô tả" wrapText="true" />
+                                    </children>
+                                </VBox>
+                        <VBox prefHeight="169.0" prefWidth="340.0">
+                           <children>
+                              <Label text="Ảnh tài sản:" />
+                              <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #ffeaa7; -fx-background-radius: 20;">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#handleSelectImage" prefHeight="25.0" prefWidth="94.0" text="Thêm ảnh" />
+                                    <ImageView fx:id="imgPreview" fitHeight="150.0" fitWidth="244.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                            </children>
+                        </VBox>
+
+                        <VBox prefWidth="320.0" spacing="15.0">
+                            <children>
+
+                                <VBox prefHeight="348.0" prefWidth="320.0" spacing="12.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;">
+                                    <children>
+                                        <Label text="⏱ Thiết lập thời gian" textFill="#2c3e50">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <VBox spacing="5.0">
+                                            <children>
+                                                <Label text="Ngày bắt đầu và Giờ bắt đầu:" />
+                                                <HBox spacing="10.0">
+                                                    <children>
+                                                        <DatePicker fx:id="startDatePicker" prefHeight="35.0" prefWidth="282.0" promptText="Chọn ngày bắt đầu" />
+                                                    </children>
+                                                </HBox>
+                                    <HBox prefHeight="20.0" prefWidth="280.0">
+                                       <children>
+                                          <Spinner fx:id="startHourSpinner" prefHeight="25.0" prefWidth="177.0" />
+                                          <Spinner fx:id="startMinSpinner" prefHeight="25.0" prefWidth="168.0" />
+                                       </children>
+                                    </HBox>
+                                            </children>
+                                        </VBox>
+                                        <VBox spacing="5.0">
+                                            <children>
+                                                <Label text="Ngày kết thúc và Giờ kết thúc:" />
+                                                <HBox spacing="10.0">
+                                                    <children>
+                                                        <DatePicker fx:id="endDatePicker" prefHeight="35.0" prefWidth="280.0" promptText="Chọn ngày kết thúc" />
+                                                    </children>
+                                                </HBox>
+                                    <HBox prefHeight="20.0" prefWidth="280.0">
+                                       <children>
+                                          <Spinner fx:id="endHourSpinner" prefHeight="25.0" prefWidth="177.0" />
+                                          <Spinner fx:id="endMinSpinner" prefHeight="25.0" prefWidth="168.0" />
+                                       </children>
+                                    </HBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                                  <Button mnemonicParsing="false" onAction="#handlePublishAuction" prefHeight="40.0" prefWidth="323.0" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="KÍCH HOẠT LÊN SÀN">
+                                      <font>
+                                          <Font name="System Bold" size="14.0" />
+                                      </font>
+                                      <VBox.margin>
+                                          <Insets top="10.0" />
+                                      </VBox.margin>
+                                  </Button>
+
+                            </children>
+                        </VBox>
+
+                    </children>
+                </HBox>
+
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
