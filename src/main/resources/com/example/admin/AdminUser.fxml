@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="20" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label text="Quản lý người dùng hệ thống" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+
+        <TableView fx:id="tableUsers" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn prefWidth="150" text="Họ tên" />
+                <TableColumn prefWidth="150" text="Email" />
+                <TableColumn prefWidth="100" text="Số dư" />
+                <TableColumn prefWidth="100" text="Vai trò" />
+                <TableColumn prefWidth="120" text="Trạng thái" />
+            </columns>
+        </TableView>
+
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button text="Khóa tài khoản" style="-fx-background-color: #c0392b; -fx-text-fill: white;" />
+            <Button text="Cấp quyền Admin" />
+        </HBox>
+    </children>
+</VBox>
