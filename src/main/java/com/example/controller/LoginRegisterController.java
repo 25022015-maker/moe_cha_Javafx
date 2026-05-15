@@ -6,74 +6,127 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginRegisterController {
 
-    // Hãy chắc chắn bạn đã đặt fx:id cho 2 ô nhập liệu này trong Scene Builder
     @FXML private TextField txtUsername;
     @FXML private PasswordField txtPassword;
 
+    // 2 Nhãn hiển thị thông báo động theo ảnh thiết kế mới của bạn
+    @FXML private Label lblLoginMessage;
+    @FXML private Label lblRegisterMessage;
+
+    // Giả lập một Database cơ sở dữ liệu dạng Map để lưu tài khoản chạy thật trong bộ nhớ app
+    private static final Map<String, String> userDatabase = new HashMap<>();
+
+    static {
+        // Tài khoản hệ thống mặc định sẵn có
+        userDatabase.put("admin", "123456");
+        userDatabase.put("user1", "password");
+    }
+
     /**
-     * Xử lý sự kiện khi nhấn nút ĐĂNG NHẬP
-     * Thực hiện chuyển đổi sang cửa sổ chính (Main.fxml)
+     * NÚT ĐĂNG NHẬP: Có 2 trường hợp chính
      */
     @FXML
     void handleLogin(ActionEvent event) {
-        // Lấy dữ liệu người dùng nhập vào
-        String username = txtUsername != null ? txtUsername.getText().trim() : "";
-        String password = txtPassword != null ? txtPassword.getText().trim() : "";
+        // Reset thông báo cũ
+        clearMessages();
 
-        // Giả lập kiểm tra dữ liệu không trống (bạn có thể thêm logic xác thực CSDL ở đây)
-        if (!username.isEmpty() && !password.isEmpty()) {
-            try {
-                // 1. Nạp file bố cục tổng thể Main.fxml (chứa Sidebar + vùng nội dung)
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fxml/MainLayout.fxml"));
-                Parent mainRoot = loader.load();
+        String username = txtUsername.getText().trim();
+        String password = txtPassword.getText().trim();
 
-                // 2. Lấy Stage (Cửa sổ ngoài cùng) hiện tại từ sự kiện click
-                Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        // Kiểm tra validation cơ bản
+        if (username.isEmpty() || password.isEmpty()) {
+            showError(lblLoginMessage, "Tài khoản/Mật khẩu không được để trống!");
+            return;
+        }
 
-                // 3. Tạo Scene mới từ Main.fxml và gán vào Stage để chuyển màn hình
-                Scene mainScene = new Scene(mainRoot);
-                currentStage.setScene(mainScene);
+        // TRƯỜNG HỢP 1: Tài khoản không tồn tại hoặc Sai mật khẩu (Gộp chung thành thông báo Bảo mật)
+        if (!userDatabase.containsKey(username) || !userDatabase.get(username).equals(password)) {
+            showError(lblLoginMessage, "Tài khoản không tồn tại hoặc sai mật khẩu!");
+            return;
+        }
 
-                // Căn giữa lại màn hình sau khi đổi giao diện lớn hơn
-                currentStage.centerOnScreen();
-                currentStage.show();
+        // TRƯỜNG HỢP 2: Đăng nhập thành công -> Hiện chữ xanh và chuyển màn hình Main Layout
+        showSuccess(lblLoginMessage, "Đăng nhập thành công! Đang chuyển hướng...");
 
-                System.out.println("Đăng nhập thành công! Đang chuyển sang Main.fxml...");
+        // Tạo hiệu ứng trễ nhỏ hoặc chuyển luôn sang giao diện chính
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fxml/MainLayout.fxml"));
+            Parent mainRoot = loader.load();
 
-            } catch (IOException e) {
-                System.err.println("Lỗi: Không tìm thấy hoặc không thể nạp file Main.fxml!");
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println("Vui lòng nhập đầy đủ tài khoản và mật khẩu để Đăng nhập!");
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene mainScene = new Scene(mainRoot);
+            currentStage.setScene(mainScene);
+            currentStage.centerOnScreen();
+            currentStage.show();
+        } catch (IOException e) {
+            showError(lblLoginMessage, "Lỗi hệ thống: Không thể nạp MainLayout.fxml!");
+            e.printStackTrace();
         }
     }
 
     /**
-     * Xử lý sự kiện khi nhấn nút ĐĂNG KÝ (khớp với ảnh On Action #handleRegister bạn đang chọn)
+     * NÚT ĐĂNG KÝ: Có 2 trường hợp chính
      */
     @FXML
     void handleRegister(ActionEvent event) {
-        String username = txtUsername != null ? txtUsername.getText().trim() : "";
-        String password = txtPassword != null ? txtPassword.getText().trim() : "";
+        // Reset thông báo cũ
+        clearMessages();
 
-        if (!username.isEmpty() && !password.isEmpty()) {
-            // Thực hiện logic thêm tài khoản vào cơ sở dữ liệu của bạn tại đây
-            System.out.println("Xử lý Đăng ký hệ thống cho tài khoản: " + username);
+        String username = txtUsername.getText().trim();
+        String password = txtPassword.getText().trim();
 
-            // Xóa sạch ô nhập liệu để thông báo người dùng có thể bấm Đăng nhập ngay
-            if (txtUsername != null) txtUsername.clear();
-            if (txtPassword != null) txtPassword.clear();
+        if (username.isEmpty() || password.isEmpty()) {
+            showError(lblRegisterMessage, "Vui lòng điền đủ thông tin để đăng ký!");
+            return;
+        }
 
-        } else {
-            System.out.println("Vui lòng điền tài khoản và mật khẩu để tiến hành Đăng ký mới!");
+        // TRƯỜNG HỢP 1: Tài khoản đã tồn tại trên sàn hệ thống
+        if (userDatabase.containsKey(username)) {
+            showError(lblRegisterMessage, "Đăng ký thất bại! Tài khoản này đã tồn tại.");
+            return;
+        }
+
+        // TRƯỜNG HỢP 2: Đăng ký thành công -> Đút vào DB và ép tiến thẳng vào trạng thái Đăng Nhập luôn
+        userDatabase.put(username, password);
+
+        showSuccess(lblRegisterMessage, "Đăng ký thành công! Hệ thống tự động đăng nhập...");
+
+        // Tiến hành tự động đăng nhập trực tiếp luôn cho người dùng
+        txtUsername.setText(username);
+        txtPassword.setText(password);
+
+        // Gọi trực tiếp hàm đăng nhập luôn giúp người dùng không phải bấm lại nút Đăng Nhập lần nữa
+        handleLogin(event);
+    }
+
+    // --- Các hàm tiện ích trang trí màu chữ thông báo nhanh ---
+
+    private void clearMessages() {
+        if (lblLoginMessage != null) lblLoginMessage.setText("");
+        if (lblRegisterMessage != null) lblRegisterMessage.setText("");
+    }
+
+    private void showError(Label label, String text) {
+        if (label != null) {
+            label.setText("❌ " + text);
+            label.setStyle("-fx-text-fill: #e74c3c; -fx-font-size: 13px; -fx-font-weight: bold;"); // Chữ đỏ khi lỗi
+        }
+    }
+
+    private void showSuccess(Label label, String text) {
+        if (label != null) {
+            label.setText("✔️ " + text);
+            label.setStyle("-fx-text-fill: #2ecc71; -fx-font-size: 13px; -fx-font-weight: bold;"); // Chữ xanh khi thành công
         }
     }
 }

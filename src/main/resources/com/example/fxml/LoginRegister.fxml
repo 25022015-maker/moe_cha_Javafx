@@ -35,15 +35,23 @@
                                 <TextField fx:id="txtUsername" prefHeight="38.0" promptText="Tên tài khoản của bạn" style="-fx-background-radius: 5;" />
                             </children>
                         </VBox>
+                  <VBox layoutX="10.0" layoutY="79.0" spacing="5.0">
+                     <children>
+                        <Label text="Email" />
+                        <TextField fx:id="txtEmail" prefHeight="38.0" promptText="Email của bạn" style="-fx-background-radius: 5;" />
+                     </children>
+                  </VBox>
                         <VBox spacing="5.0">
                             <children>
                                 <Label text="Mật khẩu" />
                                 <PasswordField fx:id="txtPassword" prefHeight="38.0" promptText="Nhập mật khẩu" style="-fx-background-radius: 5;" />
                             </children>
                         </VBox>
+                  <Label fx:id="lblLoginMessage" text="Thông báo đăng nhập" textFill="RED" />
                         <Button mnemonicParsing="false" onAction="#handleLogin" prefHeight="40.0" prefWidth="350.0" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="ĐĂNG NHẬP">
                             <font><Font name="System Bold" size="14.0" /></font>
                         </Button>
+                  <Label fx:id="lblRegisterMessage" text="Thông báo đăng kí" textFill="RED" />
                   <Button layoutX="10.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleRegister" prefHeight="40.0" prefWidth="350.0" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="ĐĂNG KÝ">
                      <font>
                         <Font name="System Bold" size="14.0" />

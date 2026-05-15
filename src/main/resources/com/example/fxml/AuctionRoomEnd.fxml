@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="800.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.AuctionRoomController">
+    <children>
+        <HBox layoutX="20.0" layoutY="20.0" prefHeight="610.0" prefWidth="760.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <children>
+
+                <VBox prefWidth="460.0" spacing="15.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15;">
+                            <children>
+                                <Label fx:id="lblTitle" text="Tên sản phẩm đấu giá (lblTitle)" textFill="#2c3e50">
+                                    <font>
+                                        <Font name="System Bold" size="22.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="lblWinner" text="Người chiến thắng là: (lblWinner)" textFill="#00bee9">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+
+                        <VBox style="-fx-background-color: white; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
+                            <children>
+                                <Label text="📈 Biểu đồ biến động giá trực tuyến" textFill="#34495e">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="15.0" top="15.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <LineChart fx:id="priceChart" createSymbols="true" prefHeight="300.0">
+                                    <xAxis>
+                                        <CategoryAxis label="Thời gian" side="BOTTOM" />
+                                    </xAxis>
+                                    <yAxis>
+                                        <NumberAxis label="Giá (kVND)" side="LEFT" />
+                                    </yAxis>
+                                </LineChart>
+
+                                <VBox spacing="8.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15;" VBox.vgrow="ALWAYS">
+                                    <children>
+                                        <Label text="🔔 Nhật ký phiên đấu giá" textFill="#2c3e50">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <TextArea fx:id="txtAreaLog" editable="false" prefHeight="200.0" prefWidth="250.0" style="-fx-text-fill: #2c3e50; -fx-font-family: monospace;" text="[Hệ thống] Phiên đấu giá bắt đầu.&#10;" wrapText="true" VBox.vgrow="ALWAYS" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

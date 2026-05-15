@@ -82,7 +82,7 @@
                                 </Label>
                                 <HBox alignment="CENTER_LEFT">
                                     <children>
-                                        <Label text="Giá hiện tại:" textFill="#7f8c8d" />
+                                        <Label text="Giá hiện tại: " textFill="#7f8c8d" />
                                         <Label fx:id="lblCurrentPrice" text="25,000,000 đ" textFill="#2ecc71">
                                             <font>
                                                 <Font name="System Bold" size="16.0" />

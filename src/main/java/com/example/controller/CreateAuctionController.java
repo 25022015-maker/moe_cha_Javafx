@@ -33,6 +33,11 @@ public class CreateAuctionController implements Initializable {
     @FXML private Spinner<Integer> endHourSpinner;
     @FXML private Spinner<Integer> endMinSpinner;
 
+    //----Thông báo đỏ label----------------------------------------
+    @FXML private Label lblMinBidMessage;
+    @FXML private Label lblStartTimeMessage;
+    @FXML private Label lblEndTimeMessage;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Khởi tạo giới hạn bảo vệ cho các Spinner thời gian ngay khi mở màn hình

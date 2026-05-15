@@ -19,7 +19,7 @@
 
                 <VBox prefHeight="80.0" prefWidth="200.0" spacing="4.0">
                     <children>
-                        <Label fx:id="lblProductName" text="Tên sản phẩm đấu giá" textFill="#2c3e50" wrapText="true">
+                        <Label fx:id="lblProductName" text="lblProductName" textFill="#2c3e50" wrapText="true">
                             <font>
                                 <Font name="System Bold" size="15.0" />
                             </font>
@@ -27,18 +27,23 @@
                         <HBox alignment="CENTER_LEFT" spacing="5.0">
                             <children>
                                 <Label text="Giá sàn:" textFill="#7f8c8d" />
-                                <Label fx:id="lblProductPrice" text="15,000,000 đ" textFill="#e74c3c">
+                                <Label fx:id="lblProductPrice" text="(lblProductPrice)" textFill="#e74c3c">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font>
                                 </Label>
                             </children>
                         </HBox>
-                        <Label fx:id="lblStatus" text="⏱ Đang diễn ra" textFill="#2ecc71">
+                        <Label fx:id="lblStatus" text="⏱ Đang diễn ra(lblStatus)" textFill="#2ecc71">
                             <font>
                                 <Font size="12.0" />
                             </font>
                         </Label>
+                  <Label fx:id="lblEndTimeProduct" layoutX="15.0" layoutY="59.0" text="⏱ (lblEndTimeProduct)" textFill="#2ecc71">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
                     </children>
                     <padding>
                         <Insets left="5.0" right="5.0" />
