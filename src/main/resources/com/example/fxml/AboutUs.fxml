@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="900.0" spacing="30.0" style="-fx-background-color: #f4f4f9; -fx-padding: 40;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+
+    <children>
+        <!-- Tiêu đề chính -->
+        <VBox alignment="CENTER" spacing="10">
+            <Text style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-fill: #2c3e50;" text="ĐỘI NGŨ PHÁT TRIỂN" />
+            <Label style="-fx-text-fill: #7f8c8d; -fx-font-size: 16px;" text="Sản phẩm được hỗ trợ bởi các mô hình AI tiên tiến" />
+        </VBox>
+
+        <!-- Container chứa 5 thành viên -->
+        <FlowPane alignment="CENTER" hgap="20.0" prefWrapLength="850" vgap="20.0">
+            <children>
+                <!-- Member Card 1 -->
+                <VBox alignment="CENTER" spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-padding: 20;" styleClass="member-card">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Thành viên 1" />
+               <Label layoutX="31.0" layoutY="30.0" style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Rần Thị Ngọc Hân" />
+                    <Label style="-fx-text-fill: #3498db;" text="Project Manager" />
+                </VBox>
+
+                <!-- Member Card 2 -->
+                <VBox alignment="CENTER" spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-padding: 20;">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Thành viên 2" />
+               <Label layoutX="31.0" layoutY="48.0" style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Phạm Thị Thanh Thảo" />
+                    <Label style="-fx-text-fill: #3498db;" text="Lead Developer" />
+                </VBox>
+
+                <!-- Member Card 4 -->
+                <VBox alignment="CENTER" spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-padding: 20;">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Thành viên 3" />
+               <Label layoutX="31.0" layoutY="30.0" style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Phạm Minh Anh" />
+                    <Label style="-fx-text-fill: #3498db;" text="Backend Engineer" />
+                </VBox>
+
+                <!-- Member Card 3 -->
+                <VBox alignment="CENTER" spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-padding: 20;">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Thành viên 4" />
+               <Label layoutX="31.0" layoutY="48.0" style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Phạm Nguyễn Huyền Trang" />
+                    <Label style="-fx-text-fill: #3498db;" text="UI/UX Designer" />
+                </VBox>
+            </children>
+        </FlowPane>
+
+        <Separator maxWidth="600" />
+
+        <!-- Phần ghi công AI -->
+        <VBox alignment="CENTER" spacing="15">
+            <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Công nghệ hỗ trợ phát triển:" />
+            <HBox alignment="CENTER" spacing="20">
+                <Label style="-fx-background-color: #e8f0fe; -fx-padding: 5 15; -fx-background-radius: 15; -fx-text-fill: #1a73e8;" text="Gemini" />
+                <Label style="-fx-background-color: #e7f6f2; -fx-padding: 5 15; -fx-background-radius: 15; -fx-text-fill: #0fa47f;" text="ChatGPT" />
+                <Label style="-fx-background-color: #f3e5f5; -fx-padding: 5 15; -fx-background-radius: 15; -fx-text-fill: #8e24aa;" text="Copilot" />
+                <Label style="-fx-background-color: #fff4e5; -fx-padding: 5 15; -fx-background-radius: 15; -fx-text-fill: #d84315;" text="Claude" />
+            </HBox>
+        </VBox>
+    </children>
+</VBox>
