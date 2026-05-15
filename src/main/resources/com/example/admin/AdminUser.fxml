@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox spacing="20" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox spacing="20" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label text="Quản lý người dùng hệ thống" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+        <Label style="-fx-font-size: 24; -fx-font-weight: bold;" text="Quản lý người dùng hệ thống" />
 
         <TableView fx:id="tableUsers" VBox.vgrow="ALWAYS">
             <columns>
@@ -16,9 +17,8 @@
             </columns>
         </TableView>
 
-        <HBox spacing="10" alignment="CENTER_RIGHT">
-            <Button text="Khóa tài khoản" style="-fx-background-color: #c0392b; -fx-text-fill: white;" />
-            <Button text="Cấp quyền Admin" />
+        <HBox alignment="CENTER_RIGHT" spacing="10">
+            <Button style="-fx-background-color: #c0392b; -fx-text-fill: white;" text="Khóa tài khoản" />
         </HBox>
     </children>
 </VBox>
