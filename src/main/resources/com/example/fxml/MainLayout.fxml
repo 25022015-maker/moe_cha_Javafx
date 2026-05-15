@@ -31,13 +31,21 @@
                             </font>
                             <padding><Insets left="25.0" /></padding>
                         </Button>
-                        <Button fx:id="btnCreateAuction" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#onCreateAuctionClick" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: #ecf0f1; -fx-cursor: hand;" text="➕  Tạo phiên đấu giá">
+                        <Button fx:id="btnCreateAuction" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#onCreateAuctionClick" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: #ecf0f1; -fx-cursor: hand;" text="🔨  Tạo phiên đấu giá">
                             <font>
                                 <Font size="14.0" />
                             </font>
                             <padding><Insets left="25.0" /></padding>
                         </Button>
-                  <Button fx:id="btnCreateAuction1" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="65.0" mnemonicParsing="false" onAction="#onCreateAuctionClick" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: #ecf0f1; -fx-cursor: hand;" text="➕  Quản lý đấu giá(ADMIN)">
+                  <Button fx:id="btnCreateAuction1" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="65.0" mnemonicParsing="false" onAction="#onCreateAuctionClick" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: #ecf0f1; -fx-cursor: hand;" text="👤  Tài khoản">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="25.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="btnCreateAuction11" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="121.0" mnemonicParsing="false" onAction="#onCreateAuctionClick" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: #ecf0f1; -fx-cursor: hand;" text="🛠️  Quản lý đấu giá(ADMIN)">
                      <font>
                         <Font size="14.0" />
                      </font>
