@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="TOP_CENTER" prefHeight="650.0" prefWidth="850.0" style="-fx-background-color: #F4F6F9;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AccountController">
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+    </padding>
+    <children>
+        <VBox maxWidth="500.0" spacing="20.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 15, 0, 0, 0);">
+            <padding>
+                <Insets bottom="35.0" left="35.0" right="35.0" top="35.0" />
+            </padding>
+            <children>
+                <Label text="Quản Lý Tài Khoản" textFill="#2C3E50">
+                    <font>
+                        <Font name="System Bold" size="22.0" />
+                    </font>
+                </Label>
+
+                <VBox spacing="5.0">
+                    <children>
+                        <Label text="Họ và tên" textFill="#7F8C8D" />
+                        <HBox spacing="10.0">
+                            <children>
+                                <TextField fx:id="txtEditUsername" editable="false" style="-fx-background-color: #F8F9FA; -fx-border-color: #E2E8F0; -fx-border-radius: 6;" text="Nguyễn Văn A" HBox.hgrow="ALWAYS" />
+                                <Button fx:id="btnEditName" mnemonicParsing="false" onAction="#handleEditName" style="-fx-background-color: #7F8C8D; -fx-text-fill: white; -fx-cursor: hand;" text="Sửa" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            <Label text="lblChangeMessage" textFill="RED" />
+
+                <VBox spacing="5.0">
+                    <children>
+                        <Label text="Email" textFill="#7F8C8D" />
+                        <HBox spacing="10.0">
+                            <children>
+                                <TextField fx:id="txtEditEmail" editable="false" style="-fx-background-color: #F8F9FA; -fx-border-color: #E2E8F0; -fx-border-radius: 6;" text="anv@gmail.com" HBox.hgrow="ALWAYS" />
+                                <Button fx:id="btnEditEmail" mnemonicParsing="false" onAction="#handleEditEmail" style="-fx-background-color: #7F8C8D; -fx-text-fill: white; -fx-cursor: hand;" text="Sửa" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+
+                <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #EBF5FB; -fx-background-radius: 8; -fx-padding: 12;">
+                    <children>
+                        <VBox HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label style="-fx-font-weight: bold;" text="Vai trò hiện tại" textFill="#2980B9" />
+                                <Label fx:id="lblRole" text="BIDDER" textFill="#2C3E50">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <Button fx:id="btnRequestSeller" mnemonicParsing="false" onAction="#handleRequestSeller" style="-fx-background-color: #2980B9; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand;" text="Xin lên Seller">
+                            <padding>
+                                <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+                            </padding>
+                        </Button>
+                    </children>
+                </HBox>
+
+                <VBox spacing="12.0" style="-fx-background-color: #FFF9E6; -fx-border-color: #FFE0B2; -fx-border-radius: 10; -fx-background-radius: 10;">
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+                    <children>
+                        <Label style="-fx-font-weight: bold;" text="Số dư ví đấu giá" textFill="#F39C12" />
+                        <Label fx:id="lblBalance" text="50,000,000 đ" textFill="#D35400">
+                            <font>
+                                <Font name="System Bold" size="26.0" />
+                            </font>
+                        </Label>
+                        <HBox spacing="10.0">
+                            <children>
+                                <TextField fx:id="txtTopUpAmount" promptText="Nhập số tiền muốn nạp..." style="-fx-background-color: #FFFFFF; -fx-border-color: #FFE0B2; -fx-border-radius: 6;" HBox.hgrow="ALWAYS" />
+                                <Button fx:id="btnSubmitTopUp" mnemonicParsing="false" onAction="#handleTopUpAtPlace" style="-fx-background-color: #F39C12; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand;" text="Nạp tiền" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</VBox>

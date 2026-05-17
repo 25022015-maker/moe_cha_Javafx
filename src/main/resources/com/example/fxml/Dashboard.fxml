@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="800.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.DashboardController">
+<AnchorPane prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.DashboardController">
     <children>
         <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -52,17 +52,18 @@
 
                 <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-padding: 10; -fx-background-color: white; -fx-border-color: #ddd; -fx-border-width: 0 0 1 0;">
                     <children>
-                        <Button style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Tất cả" />
+                        <Button onAction="#handleFilterAll" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Tất cả" />
 
-                        <Button style="-fx-background-color: #eee; -fx-text-fill: #333; -fx-background-radius: 5; -fx-cursor: hand;" text="Đang diễn ra" />
+                        <Button onAction="#handleFilterActive" style="-fx-background-color: #eee; -fx-text-fill: #333; -fx-background-radius: 5; -fx-cursor: hand;" text="Đang diễn ra" />
 
-                        <Button style="-fx-background-color: #eee; -fx-text-fill: #333; -fx-background-radius: 5; -fx-cursor: hand;" text="Sắp bắt đầu" />
+                        <Button onAction="#handleFilterUpcoming" style="-fx-background-color: #eee; -fx-text-fill: #333; -fx-background-radius: 5; -fx-cursor: hand;" text="Sắp bắt đầu" />
 
-                        <Button style="-fx-background-color: #eee; -fx-text-fill: #333; -fx-background-radius: 5; -fx-cursor: hand;" text="Đã kết thúc" />
+                        <Button onAction="#handleFilterCompleted" style="-fx-background-color: #eee; -fx-text-fill: #333; -fx-background-radius: 5; -fx-cursor: hand;" text="Đã kết thúc" />
+                  <Button layoutX="262.0" layoutY="20.0" onAction="#handleFilterMyAuctions" style="-fx-background-color: #eee; -fx-text-fill: #333; -fx-background-radius: 5; -fx-cursor: hand;" text="Phiên của tôi" />
 
                         <Region HBox.hgrow="ALWAYS" />
 
-                        <TextField prefHeight="25.0" prefWidth="306.0" promptText="Tìm kiếm..." style="-fx-pref-width: 150;" />
+                        <TextField onAction="#handleSearch" prefHeight="25.0" prefWidth="306.0" promptText="Tìm kiếm..." style="-fx-pref-width: 150;" />
                     </children>
                 </HBox>
 
@@ -73,6 +74,7 @@
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             </columnConstraints>
                             <rowConstraints>
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
